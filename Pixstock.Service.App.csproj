@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <EmbeddedResource Include="Assets\Kitting\**\*.txt" />
+      <EmbeddedResource Include="Assets\Sql\**\*.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="nlog_variable.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiteDB" Version="4.0.0" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.0.0" />
+    <PackageReference Include="SimpleInjector" Version="4.1.1" />
+    <PackageReference Include="SimpleInjector.Integration.AspNetCore.Mvc" Version="4.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\pixstock.common.core\Pixstock.Common.Core.csproj" />
+    <ProjectReference Include="..\pixstock.common.model\Pixstock.Common.Model.csproj" />
+    <ProjectReference Include="..\pixstock.service.parent\hyperion.pf.entity\Hyperion.Pf.Entity.csproj" />
+    <ProjectReference Include="..\pixstock.service.core\Pixstock.Service.Core.csproj" />
+    <ProjectReference Include="..\pixstock.service.infra\Pixstock.Service.Infra.csproj" />
+    <ProjectReference Include="..\pixstock.service.model\Pixstock.Service.Model.csproj" />
+    <ProjectReference Include="..\pixstock.service.gateway\Pixstock.Service.Gateway.csproj" />
+    <ProjectReference Include="..\pixstock.service.extention.sdk\Pixstock.Service.Extention.Sdk.csproj" />
+
+    <!-- デバッグ時は、拡張機能プロジェクトを直接読み込む -->
+    <ProjectReference Include="..\pixstock.service.extention.fullbuild\Pixstock.Service.Extention.FullBuild.csproj" />
+    <ProjectReference Include="..\pixstock.service.extention.webscribe\Pixstock.Service.Extention.Webscribe.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+   
+  </ItemGroup>
+
+</Project>
